@@ -79,22 +79,15 @@ class FinalPoolOverlay(QWidget):
     def paintEvent(self, event):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
-        pen = QPen(QColor(0, 150, 0, 100), 2)
+        pen = QPen(QColor(0, 150, 0, 60), 1)
         painter.setPen(pen)
         painter.drawRect(5, 5, self.table_width - 10, self.table_height - 10)
-        for pocket in self.pockets:
-            painter.setBrush(QBrush(QColor(255, 100, 100, 150)))
-            painter.drawEllipse(pocket[0] - 5, pocket[1] - 5, 10, 10)
         if self.clicked_point:
             x, y = int(self.clicked_point[0]), int(self.clicked_point[1])
-            pen = QPen(QColor(200, 200, 200, 120), 2)
-            painter.setPen(pen)
-            painter.setBrush(Qt.NoBrush)
-            painter.drawEllipse(x - 12, y - 12, 24, 24)
-            painter.drawEllipse(x - 8, y - 8, 16, 16)
             for i, pocket in enumerate(self.pockets):
-                pen = QPen(self.colors[i], 1.5)
-                pen.setStyle(Qt.DashLine)
+                pen = QPen(QColor(180, 180, 180, 60), 1)
+                pen.setStyle(Qt.CustomDashLine)
+                pen.setDashPattern([4, 8])
                 painter.setPen(pen)
                 painter.drawLine(x, y, pocket[0], pocket[1])
 
