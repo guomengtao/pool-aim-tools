@@ -1,22 +1,23 @@
-# Pool Aim Tools
+# 台球瞄准辅助工具
 
-A transparent overlay tool for billiards/pool aiming assistance.
+透明台球瞄准叠加层工具，支持点击穿透和实时瞄准线绘制。
 
-## Features
+## 功能特点
 
-- ✅ **Click-through Transparency**: Clicks outside the overlay window pass through to applications below
-- ✅ **Real-time Aiming Lines**: Click inside the window to draw lines from the clicked point to all 6 pockets
-- ✅ **Vertical Table Layout**: Optimized for vertical (portrait) pool table orientation
-- ✅ **Semi-transparent Display**: Light gray lines and circles won't obscure the game view
-- ✅ **Always-on-top**: Window stays above all other applications
+- ✅ **点击穿透**：窗口外的点击会传递到下面的应用程序
+- ✅ **实时瞄准线**：点击窗口内显示到6个球洞的虚线瞄准线
+- ✅ **10秒自动清除**：瞄准线10秒后自动消失
+- ✅ **竖版布局**：针对竖版台球桌优化（224×432）
+- ✅ **半透明显示**：浅灰色虚线，不遮挡游戏画面
+- ✅ **始终置顶**：窗口在所有应用之上
 
-## Requirements
+## 系统要求
 
 - Python 3.7+
 - PyQt5
 - pynput
 
-## Installation
+## 安装步骤
 
 ```bash
 git clone https://github.com/guomengtao/pool-aim-tools.git
@@ -24,51 +25,59 @@ cd pool-aim-tools
 pip install -r requirements.txt
 ```
 
-## Usage
+## 使用方法
 
 ```bash
 python final_overlay.py
 ```
 
-## Controls
+## 操作说明
 
-| Action | Description |
-|--------|-------------|
-| Click inside window | Place aiming point and draw lines to pockets |
-| Click outside window | Click passes through to pool game |
-| Press `q` | Quit the application |
+| 操作 | 说明 |
+|------|------|
+| 点击窗口内 | 放置瞄准点，显示到6个球洞的虚线 |
+| 点击窗口外 | 点击穿透到台球游戏 |
+| 按 `q` 键 | 退出程序 |
 
-## Pocket Positions (Vertical Table 224x432)
+## 球洞位置（竖版台球桌 224×432）
 
-| Pocket | Position | Coordinates |
-|--------|----------|-------------|
-| Top Left | Corner | (15, 15) |
-| Top Right | Corner | (209, 15) |
-| Left Middle | Side | (15, 216) |
-| Right Middle | Side | (209, 216) |
-| Bottom Left | Corner | (15, 417) |
-| Bottom Right | Corner | (209, 417) |
+| 球洞 | 位置 | 坐标 |
+|------|------|------|
+| 左上角袋 | 角袋 | (15, 15) |
+| 右上角袋 | 角袋 | (209, 15) |
+| 左中边袋 | 边袋 | (15, 216) |
+| 右中边袋 | 边袋 | (209, 216) |
+| 左下角袋 | 角袋 | (15, 417) |
+| 右下角袋 | 角袋 | (209, 417) |
 
-## Window Position
+## 窗口位置
 
-- Default position: 100px from left edge, vertically centered
-- Size: 224px × 432px (standard pool table proportions)
+- 默认位置：距离左边 100 像素，垂直居中
+- 尺寸：224×432（标准台球桌比例）
 
-## How It Works
+## 工作原理
 
-1. A transparent overlay window appears on the left side of your screen
-2. Click anywhere inside the window to mark a target position
-3. Six semi-transparent lines are drawn from the target to each pocket
-4. Use these lines to visualize aiming paths for your shots
-5. Clicks outside the window work normally with your pool game
+1. 程序启动后，屏幕左侧出现透明覆盖层
+2. 点击窗口内任意位置标记目标点
+3. 显示从目标点到6个球洞的半透明虚线
+4. 利用这些虚线辅助瞄准台球
+5. 10秒后瞄准线自动消失
+6. 窗口外的点击正常传递到台球游戏
 
-## Notes
+## 注意事项
 
-- The overlay is fully transparent and won't interfere with your game
-- The aiming lines are semi-transparent (40% opacity) to avoid obscuring the table
-- The window stays on top of all other applications
-- Press `q` at any time to close the overlay
+- 窗口完全透明，不会遮挡游戏画面
+- 瞄准线为半透明浅灰色虚线，不影响查看台球
+- 窗口始终置顶，在所有应用之上
+- 按 `q` 键可随时退出程序
 
-## License
+## 版本历史
+
+| 版本 | 说明 |
+|------|------|
+| v1.1.0 | 修复10秒自动清除定时器线程问题 |
+| v1.0.0 | 初始版本，透明点击穿透窗口 |
+
+## 许可证
 
 MIT License
